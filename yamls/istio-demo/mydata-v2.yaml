@@ -39,10 +39,12 @@ spec:
         version: v2
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - image: alpine
+        name: alpine
         command: [ "/bin/bash", "-c", "--" ]
         args: [ 'while true; do sleep 10;curl -o /dev/null -sS -w "%{http_code}\n" https://www.baidu.com; done;' ]
+      - image: nginx
+        name: nginx
         volumeMounts:
         - name: index-html
           mountPath: /usr/share/nginx/html
